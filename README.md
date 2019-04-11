@@ -1,6 +1,6 @@
 # Web Components
 
-(https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)[https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements]
+[参考资料：Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
 
 ## Slot
 
@@ -8,13 +8,16 @@
 
 ## 注意点
 
-> 没有利用 customElements.define 定义，直接在页面上使用，`不会报错`
+
+* 没有利用 customElements.define 定义，直接在页面上使用，`不会报错`
+
 
 ```html
 <undefined-element></undefined-element>
 ```
 
-> 直接闭合写法
+
+* 直接闭合写法
 
 ```html
 <text-component />
@@ -29,11 +32,11 @@
 </text-component>
 ```
 
-> 全局的样式不能作用到自定义的 element 当中
+* 全局的样式不能作用到自定义的 element 当中
 
-> 如果 customElements.define 的时候，添加了 `extends` 选项，只有利用 is='element-name' 才有效
+* 如果 customElements.define 的时候，添加了 `extends` 选项，只有利用 is='element-name' 才有效
 
-> style 中，可利用 `:host` 选择组件根元素, 添加 `display` 属性后才会显示
+* style 中，可利用 `:host` 选择组件根元素, 添加 `display` 属性后才会显示
 
 ```css
 :host {
@@ -45,5 +48,5 @@
 }
 ```
 
-> 组件属性初始化，可以在 `constructor` 里面利用 `this.getAttribute()` 获取值（script 在 标签后面） 
+* 组件属性初始化，可以在 `constructor` 里面利用 `this.getAttribute()` 获取值（script 在 标签后面） 
 但是如果监听了这个属性的变化，依然会在 `constructor` 走 `attributeChangedCallback`, `connectedCallback` 之前
